@@ -1,4 +1,343 @@
+# Fasan Stube – sauberes HTML/CSS Projekt
+
+## Datei: `style.css`
+
+```css
 :root {
+  --bg: #161412;
+  --bg-soft: #1d1916;
+  --bg-panel: #211b17;
+  --bg-panel-2: #181513;
+  --line: #332a23;
+  --line-2: #3a3028;
+  --text: #f5eadb;
+  --text-soft: #d4c7b7;
+  --text-muted: #b8aa97;
+  --gold: #d0a15d;
+  --gold-soft: #e9c17f;
+  --max: 1200px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+  width: min(var(--max), calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(58,48,40,.8);
+  background: rgba(22,20,18,.92);
+  backdrop-filter: blur(12px);
+}
+
+.header-row {
+  min-height: 78px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.brand-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+  font-size: 14px;
+  color: #e9dccb;
+}
+
+.nav a:hover,
+.footer-links a:hover,
+.text-link:hover {
+  color: var(--gold);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #5a4838;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.icon-link:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.btn,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: .2s ease;
+}
+
+.btn {
+  background: var(--gold);
+  color: #161412;
+}
+
+.btn:hover { transform: translateY(-1px); }
+
+.btn-secondary {
+  border: 1px solid var(--gold);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--gold);
+  color: #161412;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-image:
+    linear-gradient(180deg, rgba(15,12,10,.48), rgba(15,12,10,.62)),
+    radial-gradient(circle at top right, rgba(208,161,93,.18), transparent 35%),
+    radial-gradient(circle at left, rgba(121,88,48,.22), transparent 30%),
+    url('https://fasan-stube.de/wp-content/uploads/go-x/u/bc4f2524-40d8-4fcd-83b7-17fdfcbe8654/image.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-inner {
+  padding: 88px 0 112px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  border: 1px solid #5a4838;
+  background: #221d19;
+  color: var(--gold);
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+h1, h2, h3 { margin: 0; }
+
+.hero h1 {
+  max-width: 760px;
+  margin-top: 18px;
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.05;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 24px 0 0;
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+
+.hero-actions,
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.section {
+  padding: 84px 0;
+}
+
+.section-dark {
+  background: #191613;
+  border-top: 1px solid #2e2620;
+  border-bottom: 1px solid #2e2620;
+}
+
+.section-top-border {
+  background: #151210;
+  border-top: 1px solid #2e2620;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 34px;
+}
+
+.section-copy {
+  max-width: 720px;
+}
+
+.kicker {
+  margin-bottom: 10px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.section h2,
+.page-hero h1 {
+  font-size: clamp(30px, 4vw, 44px);
+}
+
+.section p,
+.page-hero p {
+  color: var(--text-soft);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 28px;
+}
+
+.card-visual {
+  height: 176px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  border: 1px dashed #5a4838;
+  background: linear-gradient(135deg, rgba(208,161,93,.10), rgba(255,255,255,.02));
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.point {
+  border: 1px solid #312720;
+  background: #211b17;
+  color: #e2d4c2;
+  border-radius: 20px;
+  padding: 16px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.hours {
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.hour-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: var(--bg-panel-2);
+  font-size: 14px;
+}
+
+.hour-row strong { color: var(--gold); }
+
+.form-panel {
+  background: var(--bg-soft);
+  border: 1px solid #312720;
+  border-radius: 32px;
+  padding: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--line-2);
+  background: #151210;
+  color: var(--text);
+  padding: 14px 16px;
+  font: inherit;
+  outline: none;
+}
+
+.textarea { min-height: 150px; resize: vertical; }
+.input::placeholder,
+.textarea::placeholder { color: #8e8377; }
+
+.menu-list {
+  display: grid;
+  gap: 16px;
+}
+
 .menu-item {
   display: grid;
   grid-template-columns: 1fr auto;
